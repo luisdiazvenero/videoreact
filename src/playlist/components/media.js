@@ -7,18 +7,9 @@ class Media extends PureComponent {
     author: 'Leonidas Esteban'
   }
 
-  // funcion clic
-  // con arrow function hereda el contexto
-  handleClick = (event) => {
-    // console.log(this.props.image)
-    this.setState({
-      author: 'Ricardo Selis'
-    })
-  }
-
   render() {
     return (
-      <div className="Media" onClick={this.handleClick}>
+      <div className="Media" onClick={this.props.handleClick}>
         <div className="Media-cover">
           <img className="Media-image"
             src={this.props.cover}
