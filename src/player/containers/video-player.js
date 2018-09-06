@@ -8,6 +8,7 @@ import VideoPlayerControls from '../components/video-player-controls.js';
 import ProgressBar from '../components/progress-bar.js';
 import Spinner from '../components/spinner.js';
 import Volume from '../components/volume.js';
+import FullScreen from '../components/fullscreen.js'
 
 class VideoPlayer extends Component {
   state = {
@@ -56,9 +57,22 @@ class VideoPlayer extends Component {
   handleVolumeChange = event => {
     this.video.volume = event.target.value
   }
+  handleFullScreenClick = event => {
+    if(!document.webkitIsFullScreen) {
+      this.player.webkitRequestFullScreen()
+    } else {
+      document.webkitExitFullscreen()
+    }
+
+  }
+  setRef = element =>{
+    this.player = element
+  }
   render(){
     return(
-      <VideoPlayerLayout>
+      <VideoPlayerLayout
+        setRef={this.setRef}
+      >
         <Title
           title="Esto es un video chill"
           />
@@ -79,6 +93,9 @@ class VideoPlayer extends Component {
          <Volume
            handleVolumeChange={this.handleVolumeChange}
           />
+          <FullScreen
+            handleFullScreenClick={this.handleFullScreenClick}
+           />
         </VideoPlayerControls>
         <Spinner
           active={this.state.loading}
@@ -92,6 +109,7 @@ class VideoPlayer extends Component {
           handleSeeked={this.handleSeeked}
           src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
            />
+
       </VideoPlayerLayout>
     )
   }
