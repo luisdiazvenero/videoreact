@@ -28,7 +28,10 @@ class Home extends Component {
     return (
       <HandleError>
         <HomeLayout>
-          <Related></Related>
+          <Related
+            categories={this.props.data.categories}
+            playlist={this.props.data.categories.playlist}
+            ></Related>
 
           <Categories
             categories={this.props.data.categories}

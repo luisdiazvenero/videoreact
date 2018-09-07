@@ -1,0 +1,17 @@
+.PlaylistPersonal {
+  color: #fff;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.PlaylistPersonal-title{
+  margin: 30px 0;
+}
+
+.PlaylistPersonal li {
+    padding: 5px 15px;
+    margin: 0 0 10px 10px;
+    cursor: pointer;
+    line-height: 18px;
+    display: list-item;
+}
