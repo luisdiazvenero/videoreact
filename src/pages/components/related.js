@@ -10,13 +10,15 @@ function Related(props){
         <div className="PlaylistPersonal">
           <h3 className="PlaylistPersonal-title">My Playlist</h3>
           <ol>
+
         {
-          props.categories.map((item)=>{
+          props.categories[0].playlist.map((item)=>{
             return (
               <PlaylistPersonal
                 key={item.id}
                 {...item}
-                // handleOpenModal={props.handleOpenModal}
+
+
               />
             )
           })
